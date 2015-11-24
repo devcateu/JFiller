@@ -27,7 +27,7 @@ public class SimpleFillerRuleCollectionTest {
 			public Object generate(FieldInfo fieldInfo, Random random) throws Exception {
 				return null;
 			}
-		});
+		}, 6);
 		assertThat(ruleCollection.getAllRules().size()).isEqualTo(1);
 	}
 
@@ -44,7 +44,7 @@ public class SimpleFillerRuleCollectionTest {
 			public boolean match(FieldInfo fieldInfo) {
 				return false;
 			}
-		});
+		}, 7);
 		assertThat(ruleCollection.getAllRules().size()).isEqualTo(1);
 	}
 }

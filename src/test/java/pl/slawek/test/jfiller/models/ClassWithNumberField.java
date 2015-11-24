@@ -7,6 +7,9 @@ public class ClassWithNumberField {
 	private String stringVar;
 	private Integer integerVar;
 	private Boolean booleanVar;
+	private Byte byteVar;
+	private Character characterVar;
+	private Short shortVar;
 
 	public Float getFloatVar() {
 		return floatVar;
@@ -54,5 +57,29 @@ public class ClassWithNumberField {
 
 	public void setBooleanVar(Boolean booleanVar) {
 		this.booleanVar = booleanVar;
+	}
+
+	public Byte getByteVar() {
+		return byteVar;
+	}
+
+	public void setByteVar(Byte byteVar) {
+		this.byteVar = byteVar;
+	}
+
+	public Character getCharacterVar() {
+		return characterVar;
+	}
+
+	public void setCharacterVar(Character characterVar) {
+		this.characterVar = characterVar;
+	}
+
+	public Short getShortVar() {
+		return shortVar;
+	}
+
+	public void setShortVar(Short shortVar) {
+		this.shortVar = shortVar;
 	}
 }

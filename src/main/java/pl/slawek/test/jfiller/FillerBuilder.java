@@ -33,7 +33,7 @@ public class FillerBuilder {
 	private void fillRuleCollectionWithDefaultRule() {
 		RegisterDefaultRule registerDefaultRule = RegisterDefaultRule.getInstance();
 		for (FillerRule rule : registerDefaultRule.getDefaultRules()) {
-			ruleCollection.addRule(rule);
+			ruleCollection.addRule(rule, 5);
 		}
 	}
 }

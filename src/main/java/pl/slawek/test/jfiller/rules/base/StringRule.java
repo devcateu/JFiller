@@ -10,7 +10,7 @@ import java.util.Random;
  */
 public class StringRule implements FillerRule<String> {
 
-	private String alphabet = new String("0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz");
+	private final String alphabet = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
 	public String generate(FieldInfo fieldInfo, Random random) throws Exception {
 		StringBuilder sb = new StringBuilder(20);

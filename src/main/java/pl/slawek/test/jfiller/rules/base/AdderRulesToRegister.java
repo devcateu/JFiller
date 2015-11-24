@@ -9,6 +9,7 @@ import java.util.List;
 public class AdderRulesToRegister implements DefaultFillerRuleInitializer {
 
 	public List<? extends FillerRule> getFillerDefaultRule() {
-		return Arrays.asList(new FloatRule(), new DoubleRule(), new LongRule(), new IntegerRule(), new BooleanRule(), new StringRule());
+		return Arrays.asList(new FloatRule(), new DoubleRule(), new LongRule(), new IntegerRule(), new BooleanRule(), new StringRule(), new
+				ByteRule(), new CharacterRule(), new ShortRule());
 	}
 }
