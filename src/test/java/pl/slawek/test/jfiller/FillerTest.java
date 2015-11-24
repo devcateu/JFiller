@@ -1,6 +1,7 @@
 package pl.slawek.test.jfiller;
 
 import org.junit.Test;
+import pl.slawek.test.jfiller.filler.Filler;
 import pl.slawek.test.jfiller.models.SampleDtoWithClassInner;
 import pl.slawek.test.jfiller.models.SampleEmptyDto;
 

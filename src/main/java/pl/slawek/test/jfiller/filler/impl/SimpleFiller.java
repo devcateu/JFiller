@@ -1,5 +1,8 @@
-package pl.slawek.test.jfiller;
+package pl.slawek.test.jfiller.filler.impl;
 
+import pl.slawek.test.jfiller.FieldInfo;
+import pl.slawek.test.jfiller.ProblemDuringFilling;
+import pl.slawek.test.jfiller.filler.Filler;
 import pl.slawek.test.jfiller.rules.FillerRule;
 import pl.slawek.test.jfiller.rules.FillerRuleCollection;
 
@@ -12,8 +15,8 @@ import java.util.Random;
 /**
  * Created by slawek on 2015-11-04.
  */
-public class Filler {
-	private List<Exception> problemsDuringFilling = new ArrayList<Exception>();
+public class SimpleFiller implements Filler {
+	private List<ProblemDuringFilling> problemsDuringFilling = new ArrayList<ProblemDuringFilling>();
 	private Random random = new Random();
 	private FillerRuleCollection ruleCollection;
 	private FillerRule<Object> defaultFiller = new FillerRule<Object>() {
@@ -22,11 +25,11 @@ public class Filler {
 		}
 
 		public Object generate(FieldInfo fieldInfo, Random random) throws Exception {
-			return Filler.this.fill(fieldInfo.getFieldClass());
+			return SimpleFiller.this.fill(fieldInfo.getFieldClass());
 		}
 	};
 
-	public Filler(FillerRuleCollection ruleCollection) {
+	public SimpleFiller(FillerRuleCollection ruleCollection) {
 		this.ruleCollection = ruleCollection;
 	}
 
@@ -37,7 +40,7 @@ public class Filler {
 		return instance;
 	}
 
-	public void fillFields(Object instance) throws IllegalAccessException {
+	public void fillFields(Object instance) throws Exception {
 		if (instance != null) {
 			Class instanceClass = instance.getClass();
 			Field[] fields = instanceClass.getDeclaredFields();
@@ -54,11 +57,11 @@ public class Filler {
 		try {
 			field.set(instance, fillerRule.generate(fieldInfo, random));
 		} catch (Exception e) {
-			problemsDuringFilling.add(e);
+			problemsDuringFilling.add(new ProblemDuringFilling(e));
 		}
 	}
 
-	public List<Exception> getProblemsDuringFilling() {
+	public List<ProblemDuringFilling> getProblemsDuringFilling() {
 		return Collections.unmodifiableList(problemsDuringFilling);
 	}
 }
